@@ -151,28 +151,30 @@ char cor_pintada;
 
 int maior_grau (int* grau_n){ //funcao define qual nó vai ser colorido
 
-	int i, maior = 0, j = 1, empate_id[VERTICES+1], n_iguais = 0;
+	int i, maior = 0, j = 2, empate_id[VERTICES+1], n_iguais = 0;
 	bool empate = false, achou = false;
 
 	for (i = 1; i < VERTICES+1; i++){
 		if (grau_n[i] > maior){
 			grau_n[i] = maior;
 			achou = true;
-			n_iguais++;
+			n_iguais=1;
+                        empate_id[1] = i;
 		}
+                else if(grau_n[i] == maior)
+                       n_iguais++;
 
 		if (n_iguais > 1){ //se houve empate no grau, desempata pelo grau de saturacao
 			empate_id[j] = i; //guarda id dos empates
+                        empate=true;
 			j++; //contador de empates
 		}
-
-	}
-
+        }
 	if (empate){ //desempata pelo grau de saturação
-		int 
+		
 		for (i = 1; i <= VERTICES; i++){ //desempata pelo grau de saturacao
 			if (empate_id[i] == vertice.id[i]){
-
+                            
 			}
 		}
 	}
